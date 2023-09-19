@@ -27,9 +27,9 @@ function Card({ card, getDeckById, deckId }) {
           <div className="p-2 w-50">{card.front}</div>
           <div className="p-2 w-50">{card.back}</div>
         </div>
-        <div>
-            <Link to="#" className="btn btn-secondary">Edit</Link>
-            <button onClick={handleDeleteClick} className="btn btn-danger">Delete</button>
+        <div className="d-flex justify-content-end">
+            <Link to="#" className="btn btn-secondary m-1">Edit</Link>
+            <button onClick={handleDeleteClick} className="btn btn-danger m-1">Delete</button>
         </div>
       </div>
     </div>

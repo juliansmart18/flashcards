@@ -85,7 +85,7 @@ function Study() {
       </div>
     ) : (
       <>
-        <div className="card">
+        <div className="card p-4">
           <h4 className="card-title">
             Card {currentCardIndex + 1} of {cardsArray.length}
           </h4>
@@ -93,11 +93,11 @@ function Study() {
             {isFront ? currentCard.front : currentCard.back}
           </p>
           <div>
-            <button onClick={toggleCard} className="btn btn-secondary">
+            <button onClick={toggleCard} className="btn btn-secondary m-1">
               Flip
             </button>
             {!isFront && (
-              <button onClick={nextCard} className="btn btn-primary">
+              <button onClick={nextCard} className="btn btn-primary m-1">
                 Next
               </button>
             )}

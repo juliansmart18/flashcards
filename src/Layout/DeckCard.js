@@ -29,29 +29,33 @@ function DeckCard({ deck, fetchDecks }) {
   };
 
   return (
-    <div key={deck.id} className="card">
+    <div key={deck.id} className="card mt-2">
       <div className="card-body">
         <div className="d-flex justify-content-between">
-          <div className="p-2">
+          <div>
             <h3 className="card-title">{deck.name}</h3>
           </div>
-          <div className="p-2">
+          <div>
             <h4 className="card-title">{cardsArray.length} cards</h4>
           </div>
         </div>
 
         <p className="card-text">{deck.description}</p>
-
-        <Link to={`/decks/${deck.id}`} className="btn btn-secondary">
+        <div className="d-flex justify-content-between">
+        <div>
+        <Link to={`/decks/${deck.id}`} className="btn btn-secondary m-1">
           View
         </Link>
-        <Link to={`/decks/${deck.id}/study`} className="btn btn-primary">
+        <Link to={`/decks/${deck.id}/study`} className="btn btn-primary m-1">
           Study
         </Link>
-
+        </div>
+        <div>
         <button onClick={handleDeleteClick} className="btn btn-danger">
           Delete
         </button>
+        </div>
+        </div>
       </div>
     </div>
   );

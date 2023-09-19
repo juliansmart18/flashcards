@@ -40,15 +40,19 @@ function Deck() {
     <div>
     <h3>{currentDeck.name}</h3>
     <p>{currentDeck.description}</p>
-    <div>
-        <Link to="#" className="btn btn-secondary">Edit</Link>
-        <Link to={`/decks/${deckId}/study`} className="btn btn-primary">Study</Link>
-        <Link to="#" className="btn btn-primary">Add Cards</Link>
+    <div className="d-flex justify-content-between">
+        <div>
+            <Link to="#" className="btn btn-secondary m-1">Edit</Link>
+        <Link to={`/decks/${deckId}/study`} className="btn btn-primary m-1">Study</Link>
+        <Link to="#" className="btn btn-primary m-1">Add Cards</Link>
+        </div>
+        <div>
         <button className="btn btn-danger">Delete</button>
+        </div>
     </div>
     </div>
     <div>
-        <h1>Cards</h1>
+        <h1 className="pt-4">Cards</h1>
         {cardsArray.map(card=>
             <Card key={card.id} card={card} getDeckById={getDeckById} deckId={deckId} />)}
     </div>
