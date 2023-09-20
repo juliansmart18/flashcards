@@ -4,7 +4,7 @@ import DeckCard from "./DeckCard";
 import { listDecks } from "../utils/api";
 
 
-function Decklist({decks}) {
+function Decklist() {
 
     const [decks, setDecks] = useState([]);
 
