@@ -1,10 +1,7 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function CreateDeck() {
-    // const history = useHistory();
-
-
     return (
     <div>
         <nav aria-label="breadcrumb">
@@ -28,8 +25,8 @@ function CreateDeck() {
   </div>
     </form>
     <div>
-        <Link to="/" className="btn btn-secondary">Cancel</Link>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <Link className="btn btn-secondary" to="/">Cancel</Link>
+        <button className="btn">Submit</button>
     </div>
 
     </div>
