@@ -16,7 +16,6 @@ function DeckForm({ initialFormState, submitAction }) {
     submitAction(formData);
   }
 
-
   return (
     <div>
       <form>
@@ -44,13 +43,13 @@ function DeckForm({ initialFormState, submitAction }) {
           />
         </div>
         <div>
-          <Link to="/" className="btn btn-secondary">
+          <Link to="/" className="btn btn-secondary m-1">
             Cancel
           </Link>
           <button
             onClick={handleSubmit}
             type="submit"
-            className="btn btn-primary"
+            className="btn btn-primary m-1"
           >
             Submit
           </button>

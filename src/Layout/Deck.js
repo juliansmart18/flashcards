@@ -45,10 +45,10 @@ function Deck() {
       </Route>
 
       <Route path={`${path}/edit`}>
-        <EditDeck 
+        {currentDeck.id && <EditDeck 
         currentDeck={currentDeck} 
         deckId={deckId}
-        getDeckById={getDeckById} />
+        getDeckById={getDeckById} />}
       </Route>
     </>
   );
