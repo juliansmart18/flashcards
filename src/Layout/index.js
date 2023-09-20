@@ -1,25 +1,13 @@
 import React from "react";
-import { Switch, Route, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
 import Header from "./Header";
 import NotFound from "./NotFound";
 import Decklist from "./Decklist";
 import Study from "./Study";
 import Deck from "./Deck";
-import DeckForm from "./DeckForm";
-import { createDeck } from "../utils/api";
+import CreateDeck from "./CreateDeck";
 
 function Layout() {
-
-  const history = useHistory();
-
-  const initialFormState={
-    name: "",
-    description: ""
-  }
-
-  function handleNewDeckSubmit(newDeck) {
-    createDeck(newDeck).then(data => history.push(`/decks/${data.id}`));
-  }
 
 
   return (
@@ -35,12 +23,9 @@ function Layout() {
           <Study />
         </Route>
         <Route path="/decks/new">
-          <DeckForm 
-          title="Create Deck" 
-          initialFormState={initialFormState}
-          submitAction={handleNewDeckSubmit} />
+          <CreateDeck />
         </Route>
-        <Route exact path="/decks/:deckId">
+        <Route path="/decks/:deckId">
           <Deck />
         </Route>
         <Route>
