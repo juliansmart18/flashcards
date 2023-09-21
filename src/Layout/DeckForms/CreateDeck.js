@@ -4,35 +4,37 @@ import { createDeck } from "../../utils/api";
 import DeckForm from "./DeckForm";
 
 function CreateDeck() {
+  const history = useHistory();
 
-    const history = useHistory();
+  const initialFormState = {
+    name: "",
+    description: "",
+  };
 
-    const initialFormState={
-      name: "",
-      description: ""
-    }
-  
-    function handleNewDeckSubmit(newDeck) {
-      createDeck(newDeck).then(data => history.push(`/decks/${data.id}`));
-    }
+  function handleNewDeckSubmit(newDeck) {
+    createDeck(newDeck).then((data) => history.push(`/decks/${data.id}`));
+  }
 
-    return (
-        <div>
-        <nav aria-label="breadcrumb">
+  return (
+    <div>
+      <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
             <Link to="/">Home</Link>
           </li>
-          <li className="breadcrumb-item active" aria-current="page">Create Deck</li>
+          <li className="breadcrumb-item active" aria-current="page">
+            Create Deck
+          </li>
         </ol>
       </nav>
-          <h1>Create Deck</h1>
+      <h1>Create Deck</h1>
 
-        <DeckForm 
-          initialFormState={initialFormState}
-          submitAction={handleNewDeckSubmit} />
-          </div>
-    )
+      <DeckForm
+        initialFormState={initialFormState}
+        submitAction={handleNewDeckSubmit}
+      />
+    </div>
+  );
 }
 
 export default CreateDeck;

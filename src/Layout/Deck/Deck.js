@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
   useParams,
   Route,
-  useRouteMatch
+  useRouteMatch,
 } from "react-router-dom/cjs/react-router-dom.min";
 import { readDeck } from "../../utils/api";
 import DeckView from "./DeckView";
@@ -47,26 +47,29 @@ function Deck() {
       </Route>
 
       <Route path={`${path}/edit`}>
-        {currentDeck.id && <EditDeck 
-        currentDeck={currentDeck} 
-        deckId={deckId}
-        getDeckById={getDeckById} />}
+        {currentDeck.id && (
+          <EditDeck
+            currentDeck={currentDeck}
+            deckId={deckId}
+            getDeckById={getDeckById}
+          />
+        )}
       </Route>
 
       <Route path={`${path}/cards/new`}>
         <AddCard
-        deckId={deckId}
-        currentDeck={currentDeck}
-        getDeckById={getDeckById}
-        url={url}
+          deckId={deckId}
+          currentDeck={currentDeck}
+          getDeckById={getDeckById}
+          url={url}
         />
       </Route>
 
       <Route path={`${path}/cards/:cardId/edit`}>
         <EditCard
-        currentDeck={currentDeck}
-        deckId={deckId}
-        getDeckById={getDeckById}
+          currentDeck={currentDeck}
+          deckId={deckId}
+          getDeckById={getDeckById}
         />
       </Route>
     </>

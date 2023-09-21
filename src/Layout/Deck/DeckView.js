@@ -3,8 +3,7 @@ import Card from "./Card";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { deleteDeck, listDecks } from "../../utils/api";
 
-function DeckView({currentDeck, cardsArray, url, deckId, getDeckById}) {
-
+function DeckView({ currentDeck, cardsArray, url, deckId, getDeckById }) {
   const history = useHistory();
 
   const handleDeleteClick = () => {
@@ -17,8 +16,8 @@ function DeckView({currentDeck, cardsArray, url, deckId, getDeckById}) {
         .then(() => {
           listDecks();
         })
-        .then(()=>{
-          history.push("/")
+        .then(() => {
+          history.push("/");
         })
         .catch((error) => {
           console.error("Error deleting deck:", error);
@@ -49,12 +48,17 @@ function DeckView({currentDeck, cardsArray, url, deckId, getDeckById}) {
             <Link to={`/decks/${deckId}/study`} className="btn btn-primary m-1">
               Study
             </Link>
-            <Link to={`/decks/${deckId}/cards/new`} className="btn btn-primary m-1">
+            <Link
+              to={`/decks/${deckId}/cards/new`}
+              className="btn btn-primary m-1"
+            >
               Add Cards
             </Link>
           </div>
           <div>
-            <button onClick={handleDeleteClick} className="btn btn-danger">Delete</button>
+            <button onClick={handleDeleteClick} className="btn btn-danger">
+              Delete
+            </button>
           </div>
         </div>
       </div>

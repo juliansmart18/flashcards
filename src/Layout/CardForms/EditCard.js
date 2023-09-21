@@ -1,37 +1,40 @@
-import React, {useState, useEffect} from "react";
-import { Link, useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import React, { useState, useEffect } from "react";
+import {
+  Link,
+  useHistory,
+  useParams,
+} from "react-router-dom/cjs/react-router-dom.min";
 import { readCard, updateCard } from "../../utils/api";
 import CardForm from "./CardForm";
 
+function EditCard({ currentDeck, deckId, getDeckById }) {
+  const history = useHistory();
 
-function EditCard({currentDeck, deckId, getDeckById}) {
-    const history = useHistory();
+  const { cardId } = useParams();
 
-    const {cardId} = useParams();
+  const [currentCard, setCurrentCard] = useState({});
 
-    const [currentCard, setCurrentCard] = useState({});
+  function getCardById(cardId) {
+    readCard(cardId).then((data) => setCurrentCard(data));
+  }
 
-    function getCardById(cardId) {
-        readCard(cardId).then((data)=> setCurrentCard(data))
-    }
+  useEffect(() => {
+    getCardById(cardId);
+  }, [cardId]);
 
-    useEffect(()=> {
-        getCardById(cardId);
-    },[cardId])
+  function handleUpdateCard(updatedCard) {
+    updateCard(updatedCard)
+      .then(() => {
+        return getDeckById(deckId);
+      })
+      .then(() => {
+        history.push(`/decks/${deckId}`);
+      });
+  }
 
-    function handleUpdateCard(updatedCard) {
-        updateCard(updatedCard)
-        .then(() => {
-            return getDeckById(deckId);
-        })
-        .then(() => {
-            history.push(`/decks/${deckId}`)
-        })
-    }
-
-    return (
+  return (
     <div className="pb-3">
-              <nav aria-label="breadcrumb">
+      <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
             <Link to="/">Home</Link>
@@ -44,7 +47,7 @@ function EditCard({currentDeck, deckId, getDeckById}) {
           </li>
         </ol>
       </nav>
-      
+
       <h1>Edit Card</h1>
 
       {currentCard.id && (
@@ -54,10 +57,9 @@ function EditCard({currentDeck, deckId, getDeckById}) {
           linkText="Cancel"
           submitAction={handleUpdateCard}
         />
-    )}
-
+      )}
     </div>
-    )
+  );
 }
 
 export default EditCard;

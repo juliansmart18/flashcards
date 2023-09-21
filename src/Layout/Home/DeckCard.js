@@ -42,19 +42,22 @@ function DeckCard({ deck, fetchDecks }) {
 
         <p className="card-text">{deck.description}</p>
         <div className="d-flex justify-content-between">
-        <div>
-        <Link to={`/decks/${deck.id}`} className="btn btn-secondary m-1">
-          View
-        </Link>
-        <Link to={`/decks/${deck.id}/study`} className="btn btn-primary m-1">
-          Study
-        </Link>
-        </div>
-        <div>
-        <button onClick={handleDeleteClick} className="btn btn-danger">
-          Delete
-        </button>
-        </div>
+          <div>
+            <Link to={`/decks/${deck.id}`} className="btn btn-secondary m-1">
+              View
+            </Link>
+            <Link
+              to={`/decks/${deck.id}/study`}
+              className="btn btn-primary m-1"
+            >
+              Study
+            </Link>
+          </div>
+          <div>
+            <button onClick={handleDeleteClick} className="btn btn-danger">
+              Delete
+            </button>
+          </div>
         </div>
       </div>
     </div>

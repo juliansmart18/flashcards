@@ -4,7 +4,6 @@ import { updateDeck } from "../../utils/api";
 import DeckForm from "./DeckForm";
 
 function EditDeck({ currentDeck, deckId, getDeckById }) {
-
   const history = useHistory();
 
   function handleEditDeck(updatedDeck) {
@@ -16,7 +15,7 @@ function EditDeck({ currentDeck, deckId, getDeckById }) {
         history.push(`/decks/${deckId}`);
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error);
       });
   }
 
@@ -38,10 +37,7 @@ function EditDeck({ currentDeck, deckId, getDeckById }) {
 
       <h1>Edit Deck</h1>
 
-      <DeckForm
-        initialFormState={currentDeck}
-        submitAction={handleEditDeck}
-      />
+      <DeckForm initialFormState={currentDeck} submitAction={handleEditDeck} />
     </div>
   );
 }

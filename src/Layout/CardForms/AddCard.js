@@ -3,19 +3,19 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import CardForm from "./CardForm";
 import { createCard } from "../../utils/api";
 
-function AddCard({deckId, currentDeck, getDeckById, url}) {
-    const initialFormState = {
-        front: "",
-        back: ""
-    }
+function AddCard({ deckId, currentDeck, getDeckById, url }) {
+  const initialFormState = {
+    front: "",
+    back: "",
+  };
 
-    function handleNewCard(deckId, newCard) {
-        createCard(deckId, newCard)
-          .then(() => getDeckById(deckId))
-          .catch((error) => {
-            console.log(error)
-          });
-      }
+  function handleNewCard(deckId, newCard) {
+    createCard(deckId, newCard)
+      .then(() => getDeckById(deckId))
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   return (
     <div className="pb-3">
@@ -36,13 +36,12 @@ function AddCard({deckId, currentDeck, getDeckById, url}) {
       <h1>{currentDeck.name}: Add Card</h1>
 
       <CardForm
-      initialFormState={initialFormState}
-      submitAction={handleNewCard}
-      submitButtonText="Save"
-      linkText="Done"
-      id={deckId}
-      url={url}
-
+        initialFormState={initialFormState}
+        submitAction={handleNewCard}
+        submitButtonText="Save"
+        linkText="Done"
+        id={deckId}
+        url={url}
       />
     </div>
   );
