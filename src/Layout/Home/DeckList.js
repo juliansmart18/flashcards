@@ -1,10 +1,10 @@
 import React, {useState, useEffect } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import DeckCard from "./DeckCard";
-import { listDecks } from "../utils/api";
+import { listDecks } from "../../utils/api";
 
 
-function Decklist() {
+function DeckList() {
 
     const [decks, setDecks] = useState([]);
 
@@ -21,4 +21,4 @@ function Decklist() {
     </div>
 }
 
-export default Decklist;
+export default DeckList;

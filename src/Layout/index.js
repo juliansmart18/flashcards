@@ -2,20 +2,19 @@ import React from "react";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
 import Header from "./Header";
 import NotFound from "./NotFound";
-import Decklist from "./Decklist";
-import Study from "./Study";
-import Deck from "./Deck";
-import CreateDeck from "./CreateDeck";
+import DeckList from "./Home/DeckList";
+import Study from "./Study/Study";
+import Deck from "./Deck/Deck";
+import CreateDeck from "./DeckForms/CreateDeck";
 
 function Layout() {
   return (
     <>
       <Header />
       <div className="container">
-        {/* TODO: Implement the screen starting here */}
         <Switch>
           <Route exact path="/">
-            <Decklist />
+            <DeckList />
           </Route>
           <Route exact path="/decks/:deckId/study">
             <Study />

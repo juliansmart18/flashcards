@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { updateDeck } from "../utils/api";
+import { updateDeck } from "../../utils/api";
 import DeckForm from "./DeckForm";
 
 function EditDeck({ currentDeck, deckId, getDeckById }) {
@@ -35,7 +35,7 @@ function EditDeck({ currentDeck, deckId, getDeckById }) {
           </li>
         </ol>
       </nav>
-      
+
       <h1>Edit Deck</h1>
 
       <DeckForm

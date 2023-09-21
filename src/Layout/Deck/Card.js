@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import { deleteCard } from "../utils/api";
+import { deleteCard } from "../../utils/api";
 
 function Card({ card, getDeckById, deckId }) {
 
@@ -28,7 +28,7 @@ function Card({ card, getDeckById, deckId }) {
           <div className="p-2 w-50">{card.back}</div>
         </div>
         <div className="d-flex justify-content-end">
-            <Link to="#" className="btn btn-secondary m-1">Edit</Link>
+            <Link to={`/decks/${deckId}/cards/${card.id}/edit`} className="btn btn-secondary m-1">Edit</Link>
             <button onClick={handleDeleteClick} className="btn btn-danger m-1">Delete</button>
         </div>
       </div>

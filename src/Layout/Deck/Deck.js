@@ -4,10 +4,11 @@ import {
   Route,
   useRouteMatch
 } from "react-router-dom/cjs/react-router-dom.min";
-import { readDeck } from "../utils/api";
+import { readDeck } from "../../utils/api";
 import DeckView from "./DeckView";
-import EditDeck from "./EditDeck";
-import AddCard from "./AddCard";
+import EditDeck from "../DeckForms/EditDeck";
+import AddCard from "../CardForms/AddCard";
+import EditCard from "../CardForms/EditCard";
 
 function Deck() {
   const { deckId } = useParams();
@@ -56,6 +57,15 @@ function Deck() {
         <AddCard
         deckId={deckId}
         currentDeck={currentDeck}
+        getDeckById={getDeckById}
+        url={url}
+        />
+      </Route>
+
+      <Route path={`${path}/cards/:cardId/edit`}>
+        <EditCard
+        currentDeck={currentDeck}
+        deckId={deckId}
         getDeckById={getDeckById}
         />
       </Route>

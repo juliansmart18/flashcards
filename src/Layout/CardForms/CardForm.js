@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-function CardForm({initialFormState, submitAction, submitButtonText, linkText, deckId}) {
+function CardForm({initialFormState, submitAction, submitButtonText, linkText, id, url}) {
 
     const [formData, setFormData] = useState(initialFormState);
 
@@ -14,7 +14,8 @@ function CardForm({initialFormState, submitAction, submitButtonText, linkText, d
   
     function handleSubmit(event) {
       event.preventDefault();
-      submitAction(deckId, formData);
+      id ? submitAction(id, formData)
+      : submitAction(formData);
       setFormData(initialFormState)
     }
 
@@ -44,7 +45,7 @@ function CardForm({initialFormState, submitAction, submitButtonText, linkText, d
             />
           </div>
           <div>
-            <Link to={`/decks/${deckId}`} className="btn btn-secondary m-1">
+            <Link to={url} className="btn btn-secondary m-1">
               {linkText}
             </Link>
             <button

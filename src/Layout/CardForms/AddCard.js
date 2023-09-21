@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import CardForm from "./CardForm";
-import { createCard } from "../utils/api";
+import { createCard } from "../../utils/api";
 
-function AddCard({deckId, currentDeck, getDeckById}) {
+function AddCard({deckId, currentDeck, getDeckById, url}) {
     const initialFormState = {
         front: "",
         back: ""
@@ -25,7 +25,7 @@ function AddCard({deckId, currentDeck, getDeckById}) {
             <Link to="/">Home</Link>
           </li>
           <li className="breadcrumb-item">
-            <Link to={`/decks/${deckId}`}>{currentDeck.name}</Link>
+            <Link to={url}>{currentDeck.name}</Link>
           </li>
           <li className="breadcrumb-item active" aria-current="page">
             Add Card
@@ -40,7 +40,8 @@ function AddCard({deckId, currentDeck, getDeckById}) {
       submitAction={handleNewCard}
       submitButtonText="Save"
       linkText="Done"
-      deckId={deckId}
+      id={deckId}
+      url={url}
 
       />
     </div>

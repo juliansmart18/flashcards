@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { readDeck } from "../utils/api";
+import { readDeck } from "../../utils/api";
+import NotEnoughCards from "./NotEnoughCards";
 
 function Study() {
   const { deckId } = useParams();
@@ -78,11 +79,7 @@ function Study() {
     <h2>Study: {currentDeck.name}</h2>
 
     {cardsArray.length < 3 ? (
-      <div>
-        <h3>Not enough cards.</h3>
-        <p>You need at least 3 cards to study. There are {cardsArray.length} cards in this deck.</p>
-        <Link className="btn btn-primary" to="#">Add Cards</Link>
-      </div>
+      <NotEnoughCards cardsArray={cardsArray} deckId={deckId} />
     ) : (
       <>
         <div className="card p-4">
