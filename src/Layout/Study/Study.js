@@ -35,23 +35,17 @@ function Study() {
 
   function nextCard() {
     if (currentCardIndex < cardsArray.length - 1) {
-      // If it's not the last card, increment the card index
       setCurrentCardIndex((prevIndex) => prevIndex + 1);
-      // Reset to front when moving to the next card
       setIsFront(true);
     } else {
-      // It's the last card, show confirmation dialog
       const shouldRestart = window.confirm(
         "Restart Cards?\nClick 'cancel' to return to the home page."
       );
 
       if (shouldRestart) {
-        // Reset the card index to start over
         setCurrentCardIndex(0);
-        // Reset to the front of the card
         setIsFront(true);
       } else {
-        // Navigate back to the home screen
         history.push("/");
       }
     }
