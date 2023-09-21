@@ -21,7 +21,7 @@ function Card({ card, getDeckById, deckId }) {
       };
 
   return (
-    <div className="card">
+    <div className="card pb-3">
       <div className="card-body">
         <div className="d-flex justify-content-between">
           <div className="p-2 w-50">{card.front}</div>

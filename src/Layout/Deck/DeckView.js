@@ -1,13 +1,33 @@
 import React from "react";
 import Card from "./Card";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import { deleteDeck } from "../../utils/api";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { deleteDeck, listDecks } from "../../utils/api";
 
 function DeckView({currentDeck, cardsArray, url, deckId, getDeckById}) {
 
+  const history = useHistory();
+
+  const handleDeleteClick = () => {
+    const confirmDelete = window.confirm(
+      "Delete deck?\nYou will not be able to recover it."
+    );
+
+    if (confirmDelete) {
+      deleteDeck(currentDeck.id)
+        .then(() => {
+          listDecks();
+        })
+        .then(()=>{
+          history.push("/")
+        })
+        .catch((error) => {
+          console.error("Error deleting deck:", error);
+        });
+    }
+  };
 
   return (
-    <div>
+    <div className="pb-3">
       <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
@@ -34,7 +54,7 @@ function DeckView({currentDeck, cardsArray, url, deckId, getDeckById}) {
             </Link>
           </div>
           <div>
-            <button className="btn btn-danger">Delete</button>
+            <button onClick={handleDeleteClick} className="btn btn-danger">Delete</button>
           </div>
         </div>
       </div>

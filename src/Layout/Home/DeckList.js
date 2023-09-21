@@ -13,7 +13,7 @@ function DeckList() {
     }
     useEffect(fetchDecks, []);
 
-    return <div>
+    return <div className="pb-3">
         <Link to="/decks/new" className="btn btn-outline-primary btn-lg m-2">Create Deck</Link>
         {decks.map(deck=>
             <DeckCard key={deck.id} deck={deck} fetchDecks={fetchDecks} />

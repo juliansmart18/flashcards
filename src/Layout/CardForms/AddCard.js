@@ -18,7 +18,7 @@ function AddCard({deckId, currentDeck, getDeckById, url}) {
       }
 
   return (
-    <div>
+    <div className="pb-3">
       <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
