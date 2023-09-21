@@ -7,6 +7,7 @@ import {
 import { readDeck } from "../utils/api";
 import DeckView from "./DeckView";
 import EditDeck from "./EditDeck";
+import AddCard from "./AddCard";
 
 function Deck() {
   const { deckId } = useParams();
@@ -49,6 +50,14 @@ function Deck() {
         currentDeck={currentDeck} 
         deckId={deckId}
         getDeckById={getDeckById} />}
+      </Route>
+
+      <Route path={`${path}/cards/new`}>
+        <AddCard
+        deckId={deckId}
+        currentDeck={currentDeck}
+        getDeckById={getDeckById}
+        />
       </Route>
     </>
   );

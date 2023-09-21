@@ -8,29 +8,27 @@ import Deck from "./Deck";
 import CreateDeck from "./CreateDeck";
 
 function Layout() {
-
-
   return (
     <>
       <Header />
       <div className="container">
         {/* TODO: Implement the screen starting here */}
         <Switch>
-        <Route exact path="/">
-        <Decklist />
-        </Route>
-        <Route exact path="/decks/:deckId/study">
-          <Study />
-        </Route>
-        <Route path="/decks/new">
-          <CreateDeck />
-        </Route>
-        <Route path="/decks/:deckId">
-          <Deck />
-        </Route>
-        <Route>
-        <NotFound />
-        </Route>
+          <Route exact path="/">
+            <Decklist />
+          </Route>
+          <Route exact path="/decks/:deckId/study">
+            <Study />
+          </Route>
+          <Route path="/decks/new">
+            <CreateDeck />
+          </Route>
+          <Route path="/decks/:deckId">
+            <Deck />
+          </Route>
+          <Route>
+            <NotFound />
+          </Route>
         </Switch>
       </div>
     </>

@@ -27,7 +27,7 @@ function DeckView({currentDeck, cardsArray, url, deckId, getDeckById}) {
             <Link to={`/decks/${deckId}/study`} className="btn btn-primary m-1">
               Study
             </Link>
-            <Link to="#" className="btn btn-primary m-1">
+            <Link to={`/decks/${deckId}/cards/new`} className="btn btn-primary m-1">
               Add Cards
             </Link>
           </div>
