@@ -56,7 +56,7 @@ function DeckView({ currentDeck, cardsArray, url, deckId, getDeckById }) {
             </Link>
           </div>
           <div>
-            <button onClick={handleDeleteClick} className="btn btn-danger">
+            <button onClick={handleDeleteClick} className="btn btn-danger m-1">
               Delete
             </button>
           </div>

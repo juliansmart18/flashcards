@@ -54,7 +54,7 @@ function DeckCard({ deck, fetchDecks }) {
             </Link>
           </div>
           <div>
-            <button onClick={handleDeleteClick} className="btn btn-danger">
+            <button onClick={handleDeleteClick} className="btn btn-danger m-1">
               Delete
             </button>
           </div>
